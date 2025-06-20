@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WeatherSense+</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div id="welcomeScreen" class="welcome-screen">
+    <h1>Welcome to WeatherSense+</h1>
+    <p>Discover weather insights with a touch of magic!</p>
+    <button onclick="startApp()">Enter the Weather Realm</button>
+  </div>
+
+  <div id="appContainer" class="app-container">
+    <div class="top-bar">
+      <span id="dayEmoji" class="emoji">🌞</span>
+      <div class="search-bar">
+        <select id="savedCities" onchange="loadCityWeather()"></select>
+        <input type="text" id="cityInput" placeholder="Enter city name" onkeypress="handleKeyPress(event)">
+        <button onclick="searchWeather()">Search</button>
+        <button onclick="startVoiceSearch()">🎤</button>
+      </div>
+    </div>
+
+    <div class="weather-comparison">
+      <div id="weatherMain1" class="weather-main">
+        <h2 id="cityName1"></h2>
+        <p id="weatherDescription1"></p>
+        <h1 id="temperature1"></h1>
+        <p id="humidity1"></p>
+        <p id="windSpeed1"></p>
+        <p id="pressure1"></p>
+        <p id="sunTimes1"></p>
+        <div class="weather-details">
+          <button onclick="togglePopup('hourlyPopup')">Hourly Forecast</button>
+          <button onclick="togglePopup('dailyPopup')">Daily Forecast</button>
+          <button onclick="togglePopup('historicalPopup')">Historical Data</button>
+          <button onclick="togglePopup('alertsPopup')">Alerts & Tips</button>
+          <button onclick="togglePopup('chartPopup')">Weather Chart</button>
+          <button onclick="toggleUnits()">Toggle °C/°F</button>
+          <button onclick="shareWeather()">Share</button>
+          <button onclick="compareWeather()">Compare</button>
+        </div>
+      </div>
+      <div id="weatherMain2" class="weather-main" style="display: none;">
+        <h2 id="cityName2"></h2>
+        <p id="weatherDescription2"></p>
+        <h1 id="temperature2"></h1>
+        <p id="humidity2"></p>
+        <p id="windSpeed2"></p>
+        <p id="pressure2"></p>
+        <p id="sunTimes2"></p>
+      </div>
+    </div>
+
+    <div id="hourlyPopup" class="popup">
+      <h3>Hourly Forecast</h3>
+      <div id="hourlyData"></div>
+      <button onclick="togglePopup('hourlyPopup')">Close</button>
+    </div>
+
+    <div id="dailyPopup" class="popup">
+      <h3>Daily Forecast</h3>
+      <div id="dailyData"></div>
+      <button onclick="togglePopup('dailyPopup')">Close</button>
+    </div>
+
+    <div id="historicalPopup" class="popup">
+      <h3>Historical Weather</h3>
+      <div id="historicalData"></div>
+      <button onclick="togglePopup('historicalPopup')">Close</button>
+    </div>
+
+    <div id="alertsPopup" class="popup">
+      <h3>Weather Alerts & Tips</h3>
+      <div id="alertsData"></div>
+      <p id="awarenessTip"></p>
+      <button onclick="togglePopup('alertsPopup')">Close</button>
+    </div>
+
+    <div id="chartPopup" class="popup">
+      <h3>Temperature Chart</h3>
+      <canvas id="weatherChart"></canvas>
+      <button onclick="togglePopup('chartPopup')">Close</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
