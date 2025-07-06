@@ -167,7 +167,7 @@ const openWeatherKey = '4a34142e740b8484c773427a69950549';
 
     function shareWeather() {
       const text = `${document.getElementById('cityName1').innerText}: ${document.getElementById('temperature1').innerText}, ${document.getElementById('weatherDescription1').innerText}`;
-      if (navigator.share) navigator.share({ title: 'WeatherSense+', text });
+      if (navigator.share) navigator.share({ title: 'ClimaVista', text });
       else alert('Sharing not supported on this device.');
     }
 
