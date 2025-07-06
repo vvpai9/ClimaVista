@@ -1,4 +1,4 @@
-# WeatherSense# ClimaVista 🌦️
+# ClimaVista
 
 **ClimaVista** is a Progressive Web App (PWA) that delivers real-time weather updates and immersive climate visuals for cities around the world. Built using the OpenWeatherMap and Pexels APIs, this app combines aesthetics with analytics to raise climate awareness in an engaging way.
 
